@@ -117,8 +117,6 @@ public class Main {
         int [][] confMat = cm.getConflictMatrix();
         int jumlahSiswa = cm.getJumlahStudent();
         int[][] solution = Schedule.getSaturationSchedule(cs.getSize(), cm.getDegree(), confMat);
-        /*Solution bestSolution = new Solution(solution);
-		System.out.println("Jumlah Timeslot : " + bestSolution.getJumlahTimeslot());*/
 		
 		System.out.println("Fitness : " + Utils.getPenalty(confMat, solution, jumlahSiswa));
 		
