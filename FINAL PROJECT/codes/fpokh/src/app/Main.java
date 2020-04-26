@@ -118,7 +118,7 @@ public class Main {
         int jumlahSiswa = cm.getJumlahStudent();
         int[][] solution = Schedule.getSaturationSchedule(cs.getSize(), cm.getDegree(), confMat);
 		
-		System.out.println("Fitness : " + Utils.getPenalty(confMat, solution, jumlahSiswa));
+		System.out.println("Penalty : " + Utils.getPenalty(confMat, solution, jumlahSiswa));
 		
 	long startTime = System.nanoTime();
 			for(int i = 1; i <=10; i++)

@@ -184,7 +184,7 @@ public class Schedule {
     
     public void exportSchedule(String filename) {
     	try{    
-    		FileWriter fw=new FileWriter("D:/KULIAH/ITS/Semester 7/Optimasi Kombinatorik dan Heuristik [OKH]/Tugas/Heuristik/Toronto/ExamTimetableEvaluation/"+filename+".sol");    
+    		FileWriter fw=new FileWriter("D:/Toronto/"+filename+".sol");    
             fw.write(this.getSolusi());    
             fw.close();    
         } catch(Exception e){
