@@ -2,8 +2,9 @@ package app;
 import java.util.Scanner;
 
 public class Main {
-	
-	static final String Directory = "D:/Toronto/";
+/*Author by Muris 
+  Modified by Mursyidatun Nabilah*/	
+	static final String Directory = "C:/Users/Lenovo/Documents/KULIAH/SEMESTER 6/OKH/FPOKH_05211740000067/FINAL PROJECT/Toronto/";
 	
 	public static void main(String[] args) {
 		String crs = "";
@@ -69,7 +70,7 @@ public class Main {
 				crs = earf83_crs;
 				break;
 			case 4:
-				stu = hecs92_stu;
+				stu = hecs92_stu; 
 				crs = hecs92_crs;
 				break;
 			case 5:
@@ -108,23 +109,27 @@ public class Main {
 				stu = yorf83_stu;
 				crs = yorf83_crs;
 				break;
-        }
-        
+		}
+		
+        System.out.println("Initial Solution");
         System.out.println("-- Results --");
-       
+		
         CourseSet cs = new CourseSet(crs);
         Conflict cm = new Conflict(stu, cs.getSize());
         int [][] confMat = cm.getConflictMatrix();
         int jumlahSiswa = cm.getJumlahStudent();
         int[][] solution = Schedule.getSaturationSchedule(cs.getSize(), cm.getDegree(), confMat);
-		
+		Solution bestSolution = new Solution(solution);
+			System.out.println("Jumlah Timeslot : " + bestSolution.getJumlahTimeslot());
 		System.out.println("Penalty : " + Utils.getPenalty(confMat, solution, jumlahSiswa));
 		
-	long startTime = System.nanoTime();
-			for(int i = 1; i <=10; i++)
-				Optimizer.hillClimbing(stu, crs, 100, 1000);
+System.out.println("Hill Climbing");
+        System.out.println("-- Results --");
+		long startTime = System.nanoTime();
+				Optimizer.hillClimbing(stu, crs, 100, 1000000);
 			long endTime   = System.nanoTime();
 			long totalTime = endTime - startTime;
-			System.out.println((double)totalTime/1000000000 + " second(s)");
+			System.out.println((double)totalTime/1000000000 + " detik");
+input.close();
     }
 }
